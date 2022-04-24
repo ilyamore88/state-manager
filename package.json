@@ -8,6 +8,10 @@
     "clear": "rm -rf dist"
   },
   "devDependencies": {
+    "@types/lodash": "^4",
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
