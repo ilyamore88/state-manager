@@ -1,6 +1,12 @@
 {
   "name": "state-manager",
   "packageManager": "yarn@3.2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "clear": "rm -rf dist"
+  },
   "devDependencies": {
     "typescript": "^4.6.3"
   }
