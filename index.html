@@ -3,92 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>State manager Demo</title>
-    <style>
-        #root {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .createForm {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .todosContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .todo {
-            display: inline-flex;
-            flex-direction: column;
-
-            padding: 10px 20px;
-            border: 1px solid black;
-        }
-    </style>
+    
+  <script type="module" crossorigin src="/assets/index.06d3339d.js"></script>
+  <link rel="stylesheet" href="/assets/index.099209f4.css">
 </head>
 <body>
     <div id="root"></div>
 
 
-    <script type="module">
-        import {createStore, reducer} from "./lib";
-
-        window.store = createStore(reducer);
-        const root = document.getElementById('root');
-
-        const render = () => {
-            const todos = window.store.getState().todos;
-            let html = '';
-
-            /* Render the message about empty */
-            if (todos === undefined || todos.length === 0) {
-                html = `
-                    <div>ToDo list is empty</div>
-                `;
-            } else {
-                /* Render ToDos */
-                let todosHtml = '';
-                todos.forEach((todo) => {
-                    todosHtml += `
-                    <div class="todo">
-                        <span>ID: ${todo.id}</span>
-                        <span>Name: ${todo.name}</span>
-                        <button onclick="changeTodo(${todo.id})">Edit</button>
-                        <button onclick="removeTodo(${todo.id})">Remove</button>
-                    </div>
-                    `;
-                });
-                html += `
-                <div class="todosContainer">
-                    ${todosHtml}
-                </div>
-                `;
-            }
-
-            /* Render create form */
-            html += `
-                <div class="createForm">
-                    <input id="createdTodoName" placeholder="ToDo name">
-                    <button onclick="createTodo()">Create</button>
-                </div>
-            `;
-
-            root.innerHTML = html;
-        }
-
-        /* First render */
-        render();
-
-        /* Re-render page on state update */
-        window.store.subscribe(() => {
-            render();
-        });
-    </script>
+    
     <script>
         function createTodo() {
             const name = document.getElementById('createdTodoName').value;
