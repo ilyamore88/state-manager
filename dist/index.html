@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State manager Demo</title>
+    
+  <script type="module" crossorigin src="/assets/index.06d3339d.js"></script>
+  <link rel="stylesheet" href="/assets/index.099209f4.css">
+</head>
+<body>
+    <div id="root"></div>
+
+
+    
+    <script>
+        function createTodo() {
+            const name = document.getElementById('createdTodoName').value;
+
+            window.store.dispatch({
+                type: 0,
+                data: {
+                    id: Date.now(),
+                    name
+                }
+            });
+        }
+
+        function changeTodo(id) {
+            const newName = prompt('Please, enter a new name');
+
+            window.store.dispatch({
+                type: 1,
+                data: {
+                    id,
+                    name: newName
+                }
+            });
+        }
+
+        function removeTodo(id) {
+            window.store.dispatch({
+                type: 2,
+                data: {
+                    id,
+                }
+            });
+        }
+    </script>
+</body>
+</html>

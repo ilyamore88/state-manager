@@ -1,5 +1,5 @@
 import _ from "lodash";
-import {ActionType, Reducer, State} from "./types";
+import {ActionType, Reducer, State, ToDo} from "./types";
 
 /**
  * Reducer function
@@ -13,17 +13,20 @@ export const reducer: Reducer = (state: State, action): State => {
   const stateCopy = _.cloneDeep(state);
 
   if (stateCopy.todos === undefined) {
-    stateCopy.todos = {};
+    stateCopy.todos = [];
   }
 
   switch (action.type) {
     case ActionType.CreateToDo:
+      stateCopy.todos.push(action.data);
+      break;
+
     case ActionType.ChangeToDo:
-      stateCopy.todos[action.data.id] = action.data;
+      stateCopy.todos = stateCopy.todos.map((todo: ToDo) => todo.id === action.data.id ? action.data : todo);
       break;
 
     case ActionType.RemoveToDo:
-      delete stateCopy.todos[action.data.id];
+      stateCopy.todos = stateCopy.todos.filter((todo: ToDo) => todo.id !== action.data.id);
       break;
   }
 
