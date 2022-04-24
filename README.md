@@ -2,7 +2,24 @@
 
 In this repo I've created an example of the State manager. As a reference, I used the Redux state manager.
 
-## Build library
+## Usage
+```js
+import {createStore, reducer} from "./lib";
+
+const store = createStore(reducer);
+
+store.dispatch({
+    type: 0,
+    data: {
+        id: Date.now(),
+        name: 'New name'
+    }
+});
+```
+
+## Scripts
+
+### Build library
 
 Run:
 
@@ -10,7 +27,7 @@ Run:
 yarn build:ts
 ```
 
-## Develop server
+### Develop server
 
 For a develop server I used Vite. If you want to use Vite dev server, run:
 
@@ -18,7 +35,7 @@ For a develop server I used Vite. If you want to use Vite dev server, run:
 yarn dev
 ```
 
-## Build demo
+### Build demo
 
 Run:
 
