@@ -1,6 +1,5 @@
 import _ from 'lodash';
-
-import {Store, Action, Reducer, State, Listener} from './types';
+import { Store, Action, Reducer, State, Listener } from './types';
 
 /**
  * This function is an entry point to use the store
@@ -14,7 +13,7 @@ import {Store, Action, Reducer, State, Listener} from './types';
  * @param reducer - current reducer function
  * @param initialState - initial state of the store
  */
-function createStore(reducer: Reducer, initialState: State = {}): Store {
+export function createStore(reducer: Reducer, initialState: State = {}): Store {
     const currentReducer = reducer;
     let state = _.cloneDeep(initialState);
     const currentListeners: Listener[] = [];
@@ -57,5 +56,3 @@ function createStore(reducer: Reducer, initialState: State = {}): Store {
         getState,
     };
 }
-
-export default createStore;

@@ -11,5 +11,4 @@ import { Store, Reducer, State } from './types';
  * @param reducer - current reducer function
  * @param initialState - initial state of the store
  */
-declare function createStore(reducer: Reducer, initialState?: State): Store;
-export default createStore;
+export declare function createStore(reducer: Reducer, initialState?: State): Store;

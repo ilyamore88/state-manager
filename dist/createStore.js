@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createStore = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 /**
  * This function is an entry point to use the store
@@ -54,4 +55,4 @@ function createStore(reducer, initialState = {}) {
         getState,
     };
 }
-exports.default = createStore;
+exports.createStore = createStore;
