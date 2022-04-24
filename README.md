@@ -2,6 +2,9 @@
 
 In this repo I've created an example of the State manager. As a reference, I used the Redux state manager.
 
+## Demo
+Demo page: https://ilyamore88.github.io/state-manager/
+
 ## Usage
 ```js
 import {createStore, reducer} from "./lib";
